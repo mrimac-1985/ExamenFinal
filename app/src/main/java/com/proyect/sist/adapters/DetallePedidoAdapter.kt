@@ -33,6 +33,9 @@ class DetallePedidoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun cargardiseño(productoModelo: ProductoModelo) {
 
+            itemView.txtnombreproducto.text = productoModelo.name
+            itemView.txtprecioproducto.text = "S/ "+ productoModelo.price.toString()
+
             Glide.with(context!!).load(productoModelo.urlImage)
                 .placeholder(R.drawable.ic_menu_camera)
                 .error(R.drawable.ic_menu_camera)

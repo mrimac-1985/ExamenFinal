@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.proyect.sist.R
 import com.proyect.sist.databinding.ItemProductoBinding
 import com.proyect.sist.models.ProductoModelo
 
@@ -28,8 +29,13 @@ class ProductoAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class CarteleraViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(model: ProductoModelo) {
+
+            binding.txtnombreproducto.text = model.name
+            binding.txtprecioproducto.text = "S/ "+model.price.toString()
+
             Glide.with(context)
                 .load(model.urlImage)
+                .error(R.drawable.ic_menu_camera)
                 .into(binding.ivimagen)
 
             binding.root.setOnClickListener {

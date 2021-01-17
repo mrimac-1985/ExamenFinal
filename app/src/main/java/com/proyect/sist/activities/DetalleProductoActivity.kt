@@ -56,6 +56,8 @@ class DetalleProductoActivity : BaseActivity(),DetalleProductoView {
 
             producto =  ProductoModelo(item.id, item.name,item.idproducto, item.description, item.price, item.urlImage, item.estadoPedido, item.llavepedido)
 
+            binding.txtnombreproducto.text = item.name
+            binding.txtprecio.text = "S/ "+ item.price.toString()
             Glide.with(this).load(item.urlImage).into(binding.ivImagen)
 
             binding.tvDescripcion.text = item.description
